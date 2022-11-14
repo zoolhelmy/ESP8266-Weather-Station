@@ -33,7 +33,7 @@ Pin out reference to be updated.
 
 ## Daily graph
 
-The graphs updated in daily basis from OpenWRT. More graphs for daily, weekly, monthly & yearly in images folder.
+The graphs updated in daily basis from OpenWRT. More graphs for daily, weekly, monthly & yearly in [images](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images) folder.
 
 ![Daily temperature](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/temperature-day.png?raw=true)
 
