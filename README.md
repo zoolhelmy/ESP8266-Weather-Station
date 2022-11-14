@@ -30,7 +30,7 @@ Functional
 - ESP8266 MQTT publish to IoT Cloud [ThingSpeak](https://thingspeak.com/channels/1927021).
 - ESP8266 MQTT publish to OpenWRT (Custom wifi router), plot RRDTool [graph](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph).
 - ESP8266 HTTP service request from internal network to get adhoc reading.
-![adhoc reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/Mobile_HTTP.png?raw=true)
+![adhoc reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/Mobile_HTTP.jpg?raw=true)
 
 ## Architecture
 
@@ -61,7 +61,7 @@ Full assembly
 Final rest place. Take note UV reading is not under direct sun as we hardly go outside while in Bangalore.
 ![Final rest place](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/ESP8266_final_rest_place.jpg?raw=true)
 
-More photo here [here](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph)
+More photo in [here](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph)
 
 ## Documentation
 
