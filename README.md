@@ -30,6 +30,7 @@ Functional
 - ESP8266 MQTT publish to IoT Cloud [ThingSpeak](https://thingspeak.com/channels/1927021).
 - ESP8266 MQTT publish to OpenWRT (Custom wifi router), plot RRDTool [graph](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph).
 - ESP8266 HTTP service request from internal network to get adhoc reading.
+
 ![adhoc reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/Mobile_HTTP.jpg?raw=true)
 
 ## Architecture
