@@ -9,13 +9,13 @@ ESP8266 have a limited single analog input pin A0, I have to sacrifice MQ135 & K
 
 The graphs updated in daily basis from OpenWRT RRDTool. More graphs for daily, weekly, monthly & yearly are available in [images](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images) folder.
 
-![Daily temperature](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/temperature-day.png?raw=true)
+![Daily temperature](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/graph/temperature-day.png?raw=true)
 
-![Daily humidity](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/humidity-day.png?raw=true)
+![Daily humidity](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/graph/humidity-day.png?raw=true)
 
-![Daily ultraviolet surface energy](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/uv-day.png?raw=true)
+![Daily ultraviolet surface energy](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/graph/uv-day.png?raw=true)
 
-![Daily ultraviolet index](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/duv-day.png?raw=true)
+![Daily ultraviolet index](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/graph/duv-day.png?raw=true)
 
 ## Features
 
