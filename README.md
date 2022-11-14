@@ -39,7 +39,7 @@ The graphs updated in daily basis from OpenWRT. More graphs for daily, weekly, m
 
 ![Daily humidity](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/humidity-day.png?raw=true)
 
-![Daily ultraviolet surface energy](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/images/uv-day.png?raw=true)
+![Daily ultraviolet surface energy](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/uv-day.png?raw=true)
 
 ![Daily ultraviolet index](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/duv-day.png?raw=true)
 
