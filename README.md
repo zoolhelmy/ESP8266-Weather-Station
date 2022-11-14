@@ -7,7 +7,7 @@ ESP8266 have a limited single analog input pin A0, I have to sacrifice MQ135 & K
 
 ## Daily Updated Graph
 
-The graphs updated in daily basis from OpenWRT RRDTool. More graphs for daily, weekly, monthly & yearly are available in [images](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images) folder.
+The graphs updated in daily basis from OpenWRT RRDTool. More graphs for daily, weekly, monthly & yearly are available in [images](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph) folder.
 
 ![Daily temperature](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/graph/temperature-day.png?raw=true)
 
@@ -19,15 +19,23 @@ The graphs updated in daily basis from OpenWRT RRDTool. More graphs for daily, w
 
 ## Features
 
+Sensors
 - DHT22 - Temperature and humidity with digital interface
 - BMP180 - Temperature, pressure and altitude with I2C interface
 - ML8511 - UVA & UVB with analog interface
 - MQ135 - Hazardous gas or VOC detector such as Ammonia (NH3), sulfur (S), Benzene (C6H6), CO2 etc. This is also come with analog interface.
 - KY037 - Bangalore is noisy with their honking. So this microphone will plot the trend. Too bad this micrphone is not sensitive enough. Come with analog interface. Alternative part you can use is ICS43434.
 
+Functional
+- ESP8266 MQTT publish to IoT Cloud [ThingSpeak](https://thingspeak.com/channels/1927021).
+- ESP8266 MQTT publish to OpenWRT (Custom wifi router), plot RRDTool [graph](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph).
+- ESP8266 HTTP service request from internal network to get adhoc reading.
+![adhoc reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/graph/Mobile HTTP.png?raw=true)
+
 ## Architecture
 
 MCU push sensor data through MQTT to both Thing Speak IOT cloud & my internal OpenWRT Mosquitto MQ. The next plan is to harvest MQ data with collectd and RRDTool for basic periodic graph.
+
 ## Assemble
 
 Pin out reference to be updated.
@@ -38,7 +46,22 @@ Pin out reference to be updated.
 - Install Arduino IDE. Refer to https://www.instructables.com/Steps-to-Setup-Arduino-IDE-for-NODEMCU-ESP8266-WiF/
 - Plug into your USB port and ensure COM is ready.
 - Update firmware sketch with the necessary wifi, IP address and ThingSpeak detail.
-- Compile & push the firmware
+- Compile & push the firmware.
+- Setup mosquitto-subscribe script as service.
+- Setup collectd-rrdtool-publish script as OpenWRT exec plugin.
+- Setup rrdtool-graph-github.sh script as daily cron.
+- Setup ThingSpeak account.
+- Setup OpenWRT statistics custom exec plugin. Definition file exec.js
+
+## Photo
+
+Full assembly 
+[ESP8266 Front](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/photo/ESP8266 full assembly.jpg)
+
+Final rest place. Take note UV reading is not under direct sun as we hardly go outside while in Bangalore.
+[ESP8266 Front](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/photo/ESP8266 final rest place.jpg)
+
+More photo here [here](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph)
 
 ## Documentation
 
@@ -48,7 +71,8 @@ Worth to read through all the codes and issues that they have
 - https://www.codrey.com/electronic-circuits/how-to-use-mq-135-gas-sensor/ sensor board come with the wrong resistor value. Need to replace the SMD with regular resistor.
 - https://www.tindie.com/products/onehorse/ics43434-i2s-digital-microphone/
 - https://github.com/knolleary/pubsubclient/ MQTT, the light MQ broker
+- https://github.com/sqrwf/openwrt-collectd-exec-dslstats collectd, luci-statistic
 
 ## Authors
 
-- [@zoolhelmy](https://www.github.com/zoolhelmy)
+- [@zoolhelmy](https://www.linkedin.com/in/zoolhelmy/)
