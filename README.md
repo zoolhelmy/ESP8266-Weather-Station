@@ -31,7 +31,17 @@ Pin out reference to be updated.
 - Update firmware sketch with the necessary wifi, IP address and ThingSpeak detail.
 - Compile & push the firmware
 
+## Daily graph
 
+The graphs updated in daily basis from OpenWRT
+
+![Daily temperature](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/master/images/temperature-day.png)
+
+![Daily humidity](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/master/images/humidity-day.png)
+
+![Daily ultraviolet surface energy](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/master/images/uv-day.png)
+
+![Daily ultraviolet index](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/master/images/duv-day.png)
 
 ## Documentation
 
