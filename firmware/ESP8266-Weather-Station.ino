@@ -1,3 +1,14 @@
+// -------------------------------------------------------------------------------
+//
+// Initial author: Zool Johan
+// Created		 : 11 Nov 2022
+//
+// Function   	 : HTTP adhoc page, MQTT publish to ThingSpeak & OpenWRT Mosquitto
+//				 : Wifi, HTTP, NTP, LED
+//				 : DHT22, BMP180, ML8511, MQ135, KY037 sensors
+// 
+// -------------------------------------------------------------------------------
+
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include <NTPClient.h>

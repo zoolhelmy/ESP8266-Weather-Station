@@ -54,7 +54,8 @@ start_service()
 }                 
  
 stop_service()
-        kill $(ps aux | grep "mosquitto-subscribe" | awk '{print $1}')
+		for pid in $(ps | grep "[m]osquitto-sub" | awk '{print $1}'); do kill -9 $pid; done
+		for pid in $(ps | grep "[m]osquitto_sub" | awk '{print $1}'); do kill -9 $pid; done
 }
 
 # EOF

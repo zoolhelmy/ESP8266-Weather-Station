@@ -47,18 +47,18 @@ Pin out reference to be updated.
 - Plug into your USB port and ensure COM is ready.
 - Update firmware sketch with the necessary wifi, IP address and ThingSpeak detail.
 - Compile & push the firmware.
-- Setup mosquitto-subscribe script as service.
-- Setup collectd-rrdtool-publish script as OpenWRT exec plugin.
-- Setup rrdtool-graph-github.sh script as daily cron.
-- Setup ThingSpeak account.
 - Setup OpenWRT statistics custom exec plugin. Definition file exec.js
+- Setup ThingSpeak account.
+- Setup mosquitto-subscribe script as OpenWRT service.
+- Setup collectd-rrdtool-publish script as OpenWRT statistics exec plugin.
+- Setup rrdtool-graph-github.sh script as daily cron.
 
 ## Photo
 
 Full assembly 
 ![Full assembly](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/ESP8266_full_assembly.jpg?raw=true)
 
-Final rest place. Take note UV reading is not under direct sun as we hardly go outside while in Bangalore.
+Final rest place. Take note UV reading is not under the direct sun as we hardly go outside while in Bangalore. So its just to measure under the balcony
 ![Final rest place](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/ESP8266_final_rest_place.jpg?raw=true)
 
 More photo in [here](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph)
