@@ -56,10 +56,10 @@ Pin out reference to be updated.
 ## Photo
 
 Full assembly 
-[ESP8266 Front](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/photo/ESP8266 full assembly.jpg)
+[ESP8266 Front](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/photo/ESP8266_full_assembly.jpg)
 
 Final rest place. Take note UV reading is not under direct sun as we hardly go outside while in Bangalore.
-[ESP8266 Front](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/photo/ESP8266 final rest place.jpg)
+[ESP8266 Front](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/photo/ESP8266_final_rest_place.jpg)
 
 More photo here [here](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph)
 
