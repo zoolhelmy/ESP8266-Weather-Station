@@ -5,6 +5,17 @@ NodeMCU ESP8266 with DHT22, BMP180, ML8511, MQ135 & KY037 sensors
 
 ESP8266 have a limited single analog input pin A0, I have to sacrifice MQ135 & KY037 for the time being. The next version will have analog multiplexer to share pin A0.
 
+## Daily Updated Graph
+
+The graphs updated in daily basis from OpenWRT RRDTool. More graphs for daily, weekly, monthly & yearly are available in [images](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images) folder.
+
+![Daily temperature](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/temperature-day.png?raw=true)
+
+![Daily humidity](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/humidity-day.png?raw=true)
+
+![Daily ultraviolet surface energy](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/uv-day.png?raw=true)
+
+![Daily ultraviolet index](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/duv-day.png?raw=true)
 
 ## Features
 
@@ -14,14 +25,12 @@ ESP8266 have a limited single analog input pin A0, I have to sacrifice MQ135 & K
 - MQ135 - Hazardous gas or VOC detector such as Ammonia (NH3), sulfur (S), Benzene (C6H6), CO2 etc. This is also come with analog interface.
 - KY037 - Bangalore is noisy with their honking. So this microphone will plot the trend. Too bad this micrphone is not sensitive enough. Come with analog interface. Alternative part you can use is ICS43434.
 
-
 ## Architecture
 
 MCU push sensor data through MQTT to both Thing Speak IOT cloud & my internal OpenWRT Mosquitto MQ. The next plan is to harvest MQ data with collectd and RRDTool for basic periodic graph.
 ## Assemble
 
 Pin out reference to be updated.
-
 
 ## Setup
 
@@ -30,18 +39,6 @@ Pin out reference to be updated.
 - Plug into your USB port and ensure COM is ready.
 - Update firmware sketch with the necessary wifi, IP address and ThingSpeak detail.
 - Compile & push the firmware
-
-## Daily graph
-
-The graphs updated in daily basis from OpenWRT. More graphs for daily, weekly, monthly & yearly in [images](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images) folder.
-
-![Daily temperature](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/temperature-day.png?raw=true)
-
-![Daily humidity](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/humidity-day.png?raw=true)
-
-![Daily ultraviolet surface energy](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/uv-day.png?raw=true)
-
-![Daily ultraviolet index](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/duv-day.png?raw=true)
 
 ## Documentation
 
@@ -55,4 +52,3 @@ Worth to read through all the codes and issues that they have
 ## Authors
 
 - [@zoolhelmy](https://www.github.com/zoolhelmy)
-
