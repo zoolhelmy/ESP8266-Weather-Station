@@ -33,15 +33,15 @@ Pin out reference to be updated.
 
 ## Daily graph
 
-The graphs updated in daily basis from OpenWRT
+The graphs updated in daily basis from OpenWRT. More graphs for daily, weekly, monthly & yearly in images folder.
 
-![Daily temperature](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/master/images/temperature-day.png)
+![Daily temperature](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/temperature-day.png?raw=true)
 
-![Daily humidity](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/master/images/humidity-day.png)
+![Daily humidity](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/humidity-day.png?raw=true)
 
-![Daily ultraviolet surface energy](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/master/images/uv-day.png)
+![Daily ultraviolet surface energy](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/images/uv-day.png?raw=true)
 
-![Daily ultraviolet index](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/master/images/duv-day.png)
+![Daily ultraviolet index](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/duv-day.png?raw=true)
 
 ## Documentation
 
