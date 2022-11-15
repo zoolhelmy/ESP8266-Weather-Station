@@ -71,7 +71,7 @@ Full assembly
 Final rest place. Take note UV reading is not under the direct sun as we hardly go outside while in Bangalore. So its just to measure under the balcony
 ![Final rest place](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/ESP8266_final_rest_place.jpg?raw=true)
 
-More photo in [here](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph)
+More photo in [here](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images)
 
 ## Documentation
 
