@@ -3,21 +3,24 @@
 # --------------------------------------------------------------------
 #
 # Initial author: Zool Johan
-# Created		: 11 Nov 2022
+# Created	: 11 Nov 2022
 #
 # Function   	: collectd read the data and update RRDTool file.
 # 
-# Run 			: OpenWRT > Statistics > Setup > Exec > Configure
-#				: https://openwrt.org/docs/techref/initscripts
+# Run		: Run as OS service or nohup
+#		: https://openwrt.org/docs/techref/initscripts
 # 
 # --------------------------------------------------------------------
 
 # Variables
+START=10
+STOP=15
+
 HOSTNAME="${COLLECTD_HOSTNAME:-$(cat /proc/sys/kernel/hostname)}" #
 INTERVAL=${COLLECTD_INTERVAL:-30}                                 #
 INTERVAL=${INTERVAL%.*}                                           # OpenWRT collectd default 30 secs
-RRDTOOL_IFID="exec-weather-mosquitto"							  #
-PATH_COLLECTDDATA="/etc/collectd/data"							  # must be the same as mosquitto-subscriber.sh
+RRDTOOL_IFID="exec-weather-mosquitto"				  #
+PATH_COLLECTDDATA="/etc/collectd/data"				  # must be the same as mosquitto-subscriber.sh
 
 # Main function
 read_last_data() {
@@ -58,6 +61,9 @@ main() {
 	done
 }
 
+echo start
 main
+ 
 
 # EOF
+

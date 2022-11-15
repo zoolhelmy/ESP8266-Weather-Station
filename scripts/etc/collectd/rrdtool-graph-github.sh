@@ -3,12 +3,12 @@
 # --------------------------------------------------------------------
 #
 # Initial author: Zool Johan
-# Created		: 11 Nov 2022
+# Created	: 11 Nov 2022
 #
 # Function   	: RRDTool generate graph image and commit to GitHub
 # 
-# Run 			: Run as daily cron
-#				: https://openwrt.org/docs/guide-user/base-system/cron
+# Run		: Run as daily cron
+#		: https://openwrt.org/docs/guide-user/base-system/cron
 # 
 # --------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ PATH_RRDTOOL="/usr/bin/rrdtool"                                   #
 PATH_RRDIMG="/etc/collectd/images"                                #
 GRAPH_WIDTH=840                                                   #
 GRAPH_HEIGHT=100                                                  #
-GRAPH_IMGTYPE="PNG"												  # RTFM options: PNG|SVG|EPS|PDF
+GRAPH_IMGTYPE="PNG"						  # RTFM options: PNG|SVG|EPS|PDF
 
 # Plot graph function
 plot_graph() {
@@ -102,7 +102,7 @@ plot_graph() {
 
 # Github update function
 update_github() {
-	echo "Update_github WIP"
+	echo "update_github WIP"
 }
 
 # Main
@@ -113,3 +113,4 @@ plot_graph year
 update_github
 
 # EOF
+

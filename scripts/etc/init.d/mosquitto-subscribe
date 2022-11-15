@@ -3,59 +3,37 @@
 # --------------------------------------------------------------------
 #
 # Initial author: Zool Johan
-# Created		: 11 Nov 2022
+# Created	: 11 Nov 2022
 #
 # Function   	: mosquitto_sub to wait and collect data from ESP8266 whenever it publish and 
-#			   	  copy the final value to a file. 
+#	   	  copy the final value to a file. 
 # 
-# Run 			: Run as OS service or nohup
-#				: https://openwrt.org/docs/techref/initscripts
+# Run 		: Run as OS service or nohup
+#		: https://openwrt.org/docs/techref/initscripts
 # 
 # --------------------------------------------------------------------
 
 # Variables
-MQ_BROKER="192.168.2.1"                #
-PATH_MQSUB="/usr/bin/mosquitto_sub"    #
-PATH_COLLECTDTMP="/etc/collectd/tmp"   #
-PATH_COLLECTDDATA="/etc/collectd/data" # must be the same as collectd-rrdtool-publish.sh
+START=99
+STOP=00
+PATH_COLLECTD="/etc/collectd"
 
-# Main function
-# pickup the data whenever ESP8266 publish it
-read_mq_data() {
-
-	$($PATH_MQSUB -h $MQ_BROKER -t weather/temperature  -C 1 > $PATH_COLLECTDTMP/temperature.txt  ) &
-	$($PATH_MQSUB -h $MQ_BROKER -t weather/temperature2 -C 1 > $PATH_COLLECTDTMP/temperature2.txt ) &
-	$($PATH_MQSUB -h $MQ_BROKER -t weather/feelslike    -C 1 > $PATH_COLLECTDTMP/feelslike.txt    ) &
-	$($PATH_MQSUB -h $MQ_BROKER -t weather/humid        -C 1 > $PATH_COLLECTDTMP/humid.txt        ) &
-	$($PATH_MQSUB -h $MQ_BROKER -t weather/uv           -C 1 > $PATH_COLLECTDTMP/uv.txt           ) &
-	$($PATH_MQSUB -h $MQ_BROKER -t weather/duv          -C 1 > $PATH_COLLECTDTMP/duv.txt          ) &
-	$($PATH_MQSUB -h $MQ_BROKER -t weather/press        -C 1 > $PATH_COLLECTDTMP/press.txt        ) &
-	$($PATH_MQSUB -h $MQ_BROKER -t weather/presssea     -C 1 > $PATH_COLLECTDTMP/presssea.txt     ) &
-	$($PATH_MQSUB -h $MQ_BROKER -t weather/alt          -C 1 > $PATH_COLLECTDTMP/alt.txt          ) &
-	$($PATH_MQSUB -h $MQ_BROKER -t weather/altreal      -C 1 > $PATH_COLLECTDTMP/altreal.txt      ) &
-
-	# wait for each mosquitto_sub to read and terminate
-	wait
-
-	# move the data for collectd to pickup
-	mv $PATH_COLLECTDTMP/*.txt $PATH_COLLECTDDATA/ 2>/dev/null
-}
-
-# Main infinite loop
 main() {
-	while true; do
-		read_mq_data
-	done
+	echo "$(date) start main" >> $PATH_COLLECTD/status.txt
+	nohup $PATH_COLLECTD/mosquitto-subscribe.sh 1>>$PATH_COLLECTD/status.txt 2>>$PATH_COLLECTD/status.txt &
 }
 
-start_service()
-        echo start
-        main
+start() {
+        echo "$(date) start" >> $PATH_COLLECTD/status.txt
+	main
 }                 
  
-stop_service()
-		for pid in $(ps | grep "[m]osquitto-sub" | awk '{print $1}'); do kill -9 $pid; done
-		for pid in $(ps | grep "[m]osquitto_sub" | awk '{print $1}'); do kill -9 $pid; done
+stop() {
+	ps | grep "[m]osquitto-sub" | awk '{printf " " $1}'
+	for pid in $(ps | grep "[m]osquitto-sub" | awk '{print $1}'); do kill -9 $pid; done
+	echo "$(date) stop" >> $PATH_COLLECTD/status.txt
+	
+	ps | grep "[m]osquitto_sub" | awk '{printf " " $1}'
+	for pid in $(ps | grep "[m]osquitto_sub" | awk '{print $1}'); do kill -9 $pid; done
+	echo "$(date) stop" >> $PATH_COLLECTD/status.txt
 }
-
-# EOF
