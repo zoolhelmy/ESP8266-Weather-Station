@@ -43,9 +43,12 @@ Functional
 
 ![adhoc reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/Architecture.png?raw=true)
 
-## Assemble
+## ESP8266 Pin Out
 
-Pin out reference to be updated.
+Pin out reference with DHT22, BMP180 & ML8511 sensors
+
+
+![adhoc reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/ESP8266_Pin_Out.png?raw=true)
 
 ## Setup
 

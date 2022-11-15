@@ -72,7 +72,7 @@ Adafruit_BMP085 bmp;
 ML8511 light(ANALOGPIN);
 
 // DHT22
-uint8_t DIGITALPIN = D3; // input pin
+uint8_t DIGITALPIN = D8; // input pin
 DHT dht(DIGITALPIN, DHTTYPE);
 
 // KY-037
