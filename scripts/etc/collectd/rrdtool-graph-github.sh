@@ -13,13 +13,14 @@
 # --------------------------------------------------------------------
 
 # Variables
-HOSTNAME="${COLLECTD_HOSTNAME:-$(cat /proc/sys/kernel/hostname)}" #
-PATH_RRDFILE="/overlay/tmp/rrd/$HOSTNAME/exec-weather-mosquitto"  #
-PATH_RRDTOOL="/usr/bin/rrdtool"                                   #
-PATH_RRDIMG="/etc/collectd/images"                                #
-GRAPH_WIDTH=840                                                   #
-GRAPH_HEIGHT=100                                                  #
-GRAPH_IMGTYPE="PNG"						  # RTFM options: PNG|SVG|EPS|PDF
+HOSTNAME="${COLLECTD_HOSTNAME:-$(cat /proc/sys/kernel/hostname)}" 	#
+PATH_RRDFILE="/overlay/tmp/rrd/$HOSTNAME/exec-weather-mosquitto"  	#
+PATH_RRDTOOL="/usr/bin/rrdtool"                                   	#
+PATH_RRDIMG="/etc/collectd/images"                                	#
+PATH_GITHUBIMG="/etc/collectd/git/ESP8266-Weather-Station/images/graph" #
+GRAPH_WIDTH=840                                                   	#
+GRAPH_HEIGHT=100                                                  	#
+GRAPH_IMGTYPE="PNG"						  	# RTFM options: PNG|SVG|EPS|PDF
 
 # Plot graph function
 plot_graph() {
@@ -102,7 +103,19 @@ plot_graph() {
 
 # Github update function
 update_github() {
-	echo "update_github WIP"
+	echo "Update github..."
+	cp $PATH_RRDIMG/*.png $PATH_GITHUBIMG/
+	cd $PATH_GITHUBIMG
+
+	git add *.png
+	git status >> status.txt
+
+	git commit -m "ESP8266 daily graph update $(date)"
+	git status >> status.txt
+
+	git push
+	git status >> status.txt
+
 }
 
 # Main
@@ -110,6 +123,7 @@ plot_graph day
 plot_graph week
 plot_graph month
 plot_graph year
+
 update_github
 
 # EOF
