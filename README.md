@@ -35,7 +35,12 @@ Functional
 
 ## Architecture
 
-MCU push sensor data through MQTT to both Thing Speak IOT cloud & my internal OpenWRT Mosquitto MQ. The next plan is to harvest MQ data with collectd and RRDTool for basic periodic graph.
+- ESP8266 push sensor data through MQTT to both ThingSpeak IOT cloud & OpenWRT Mosquitto MQ. At any moment HTTP request is available for adhoc reading. 
+- ThingSpeak is a real time graph and can be further analyze with MathLab.
+- HTTP request is currently limited to internal network segment. Too bad, Airtel ISP disabled any port forwarding. Otherwise I can assign a subdomain eg weather.zoolhelmy.com with the help of Dynamic DNS for dynamic public IP and read it from anywhere instantly. 
+- Meanwhile in OpenWRT, MQ data is further digested by collectd & RRDTool for basic periodic graph. The generated static graph as PNG is push to github on daily basis.
+
+![adhoc reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/Architecture.png?raw=true)
 
 ## Assemble
 
