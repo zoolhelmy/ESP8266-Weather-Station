@@ -1,5 +1,5 @@
 
-# ESP8266 Weather Station
+# ESP8266 IoT Weather Station
 
 NodeMCU ESP8266 with DHT22, BMP180, ML8511, MQ135 & KY037 sensors
 
