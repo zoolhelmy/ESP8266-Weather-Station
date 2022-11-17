@@ -33,10 +33,10 @@ Functional
 
 
 
-Mobile phone
+Mobile phone  
 ![Mobile phone instant reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/HTTP_mobile.jpg?raw=true)
 
-Tablet on the wall
+Tablet on the wall  
 ![Table instant reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/HTTP_tablet.jpg?raw=true)
 
 Other Features
