@@ -5,7 +5,7 @@ NodeMCU ESP8266 with DHT22, BMP180, ML8511, MQ135 & KY037 sensors
 
 ESP8266 have a limited single analog input pin A0, I have to sacrifice MQ135 & KY037 for the time being. The next version will have analog multiplexer to share pin A0.
 
-## Daily Updated Graph
+## Hourly Updated Graph
 
 The graphs updated in daily basis from OpenWRT RRDTool. More graphs for daily, weekly, monthly & yearly are available in [images](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph) folder.
 
