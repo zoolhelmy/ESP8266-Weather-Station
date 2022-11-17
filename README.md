@@ -7,7 +7,7 @@ ESP8266 have a limited single analog input pin A0, I have to sacrifice MQ135 & K
 
 ## Hourly Updated Graph
 
-The graphs updated in daily basis from OpenWRT RRDTool. More graphs for daily, weekly, monthly & yearly are available in [images](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph) folder.
+The graphs updated in daily basis from OpenWRT RRDTool. More graphs for daily, weekly, monthly & yearly are available in [images/graph](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph) folder.
 
 ![Daily temperature](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/graph/temperature-day.png?raw=true)
 
@@ -27,28 +27,41 @@ Sensors
 - KY037 - Bangalore is noisy with their honking. So this microphone will plot the trend. Too bad this micrphone is not sensitive enough. Come with analog interface. Alternative part you can use is ICS43434.
 
 Functional
-- ESP8266 MQTT publish to IoT Cloud [ThingSpeak](https://thingspeak.com/channels/1927021).
+- ESP8266 MQTT publish to IoT Cloud [ThingSpeak](https://thingspeak.com/channels/1927021). Data is available publicly in real time through various API channel.
 - ESP8266 MQTT publish to OpenWRT (Custom wifi router), plot RRDTool [graph](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph).
-- ESP8266 HTTP service request from internal network to get adhoc reading.
+- ESP8266 HTTP service request from internal network to get instant reading from mobile phone or tablet.
 
-![adhoc reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/Mobile_HTTP.jpg?raw=true)
+
+
+Mobile phone
+![Mobile phone instant reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/HTTP_mobile.jpg?raw=true)
+
+Tablet on the wall
+![Table instant reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/HTTP_tablet.jpg?raw=true)
+
+Other Features
+- Wifi auto reconnect
+- MQ auto reconnect, not sure why it dies intermittently
+- Fixed IP address instead of DHCP
+- NTP sync to ensure accurate timestamp for HTTP instant request
+- Double blink LED every 5 secs to ensure device is up & running
 
 ## Architecture
 
-- ESP8266 push sensor data through MQTT to both ThingSpeak IOT cloud & OpenWRT Mosquitto MQ. At any moment HTTP request is available for adhoc reading. 
-- ThingSpeak is a real time graph and can be further analyze with MathLab.
+- ESP8266 push sensor data through MQTT to both [ThingSpeak IOT cloud](https://thingspeak.com/channels/1927021) & OpenWRT Mosquitto MQ. At any moment HTTP request is available for instant reading. 
+- [ThingSpeak](https://thingspeak.com/channels/1927021) is a real time graph and can be further analyze with MathLab.
 - HTTP request is currently limited to internal network segment. Too bad, Airtel ISP disabled any port forwarding. Otherwise I can assign a subdomain eg weather.zoolhelmy.com with the help of Dynamic DNS for dynamic public IP and read it from anywhere instantly. 
 - Meanwhile in OpenWRT, MQ data is further digested by collectd & RRDTool for basic periodic graph. The generated static graph as PNG is push to github on daily basis.
 
 
-![adhoc reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/Architecture.png?raw=true)
+![Architecture diagram](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/Architecture.png?raw=true)
 
 ## ESP8266 Pin Out
 
 Pin out reference with DHT22, BMP180 & ML8511 sensors
 
 
-![adhoc reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/ESP8266_Pin_Out.png?raw=true)
+![ESP8266 pin out](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/ESP8266_Pin_Out.png?raw=true)
 
 ## Setup
 
