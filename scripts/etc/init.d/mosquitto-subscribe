@@ -10,6 +10,7 @@
 # 
 # Run 		: Run as OS service or nohup
 #		: https://openwrt.org/docs/techref/initscripts
+#		: https://openwrt.org/docs/guide-developer/procd-init-scripts
 # 
 # --------------------------------------------------------------------
 
@@ -20,7 +21,10 @@ PATH_COLLECTD="/etc/collectd"
 
 main() {
 	echo "$(date) start main" >> $PATH_COLLECTD/status.txt
+	#su nobody -c "nohup $PATH_COLLECTD/mosquitto-subscribe.sh >/dev/null 2>&1 &"
+	#su nobody -c "nohup $PATH_COLLECTD/mosquitto-subscribe.sh &"
 	nohup $PATH_COLLECTD/mosquitto-subscribe.sh 1>>$PATH_COLLECTD/status.txt 2>>$PATH_COLLECTD/status.txt &
+
 }
 
 start() {
@@ -37,3 +41,4 @@ stop() {
 	for pid in $(ps | grep "[m]osquitto_sub" | awk '{print $1}'); do kill -9 $pid; done
 	echo "$(date) stop" >> $PATH_COLLECTD/status.txt
 }
+
