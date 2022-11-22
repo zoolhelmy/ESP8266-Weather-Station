@@ -7,8 +7,8 @@
 #
 # Function   	: collectd read the data and update RRDTool file.
 # 
-# Run		: Run as OS service or nohup
-#		: https://openwrt.org/docs/techref/initscripts
+# Run		: Run as OpenWRT luci-app-statistics exec-plugin
+#		: https://openwrt.org/docs/guide-user/perf_and_log/statistic.custom
 # 
 # --------------------------------------------------------------------
 
@@ -51,6 +51,7 @@ read_last_data() {
 	
 	# reset the data, if any of the services are down, the data will always zero
 	rm -rf $PATH_COLLECTDDATA/*.txt
+
 }
 
 # Main infinite loop
@@ -64,6 +65,4 @@ main() {
 echo start
 main
  
-
 # EOF
-
