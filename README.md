@@ -7,7 +7,7 @@ ESP8266 have a limited single analog input pin A0, I have to sacrifice MQ135 & K
 
 ## Hourly Updated Graph
 
-The graphs updated in daily basis from OpenWRT RRDTool. More graphs for daily, weekly, monthly & yearly are available in [images/graph](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph) folder.
+The data is updated on every 10 minutes & graphs is on hourly basis from OpenWRT RRDTool. More graphs for hourly, daily, weekly, monthly & yearly are available in [images/graph](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/main/images/graph) folder.
 
 ![Daily temperature](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/graph/temperature-day.png?raw=true)
 
@@ -40,18 +40,19 @@ Tablet on the wall
 ![Table instant reading](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/HTTP_tablet.jpg?raw=true)
 
 Other Features
-- Wifi auto reconnect
-- MQ auto reconnect, not sure why it dies intermittently
-- Fixed IP address instead of DHCP
-- NTP sync to ensure accurate timestamp for HTTP instant request
-- Double blink LED every 5 secs to ensure device is up & running
+- Wifi auto reconnect.
+- MQ auto reconnect, not sure why it dies intermittently.
+- Fixed IP address instead of DHCP.
+- NTP sync to ensure accurate timestamp for HTTP instant request.
+- Double blink LED every 5 secs to ensure device is up & running visually.
 
 ## Architecture
 
 - ESP8266 push sensor data through MQTT to both [ThingSpeak IOT cloud](https://thingspeak.com/channels/1927021) & OpenWRT Mosquitto MQ. At any moment HTTP request is available for instant reading. 
-- [ThingSpeak](https://thingspeak.com/channels/1927021) is a real time graph and can be further analyze with MathLab.
-- HTTP request is currently limited to internal network segment. Too bad, Airtel ISP disabled any port forwarding. Otherwise I can assign a subdomain eg weather.zoolhelmy.com with the help of Dynamic DNS for dynamic public IP and read it from anywhere instantly. 
-- Meanwhile in OpenWRT, MQ data is further digested by collectd & RRDTool for basic periodic graph. The generated static graph as PNG is push to github on daily basis.
+- [ThingSpeak](https://thingspeak.com/channels/1927021) is a real time graph and can be further analyzed with MathLab.
+- Real time HTTP request is limited to internal network only. Too bad, Airtel ISP does not support port forwarding to serve the data in public.
+- However hourly data & graph is pushed to GitHub and served at http://weather.zoolhelmy.com
+- OpenWRT MQ data is further digested by collectd & RRDTool for basic periodic graph. The generated static graph as PNG is push to github on hourly basis.
 
 
 ![Architecture diagram](https://github.com/zoolhelmy/ESP8266-Weather-Station/blob/main/images/photo/Architecture.png?raw=true)
@@ -89,12 +90,11 @@ More photo in [here](https://github.com/zoolhelmy/ESP8266-Weather-Station/tree/m
 ## Documentation
 
 Worth to read through all the codes and issues that they have
-- https://github.com/RobTillaart/ML8511
 - https://github.com/RobTillaart/ML8511/issues/4 calibrate UV factor to get the right UV index. This will tally with your local weather channel.
-- https://www.codrey.com/electronic-circuits/how-to-use-mq-135-gas-sensor/ sensor board come with the wrong resistor value. Need to replace the SMD with regular resistor.
-- https://www.tindie.com/products/onehorse/ics43434-i2s-digital-microphone/
-- https://github.com/knolleary/pubsubclient/ MQTT, the light MQ broker
-- https://github.com/sqrwf/openwrt-collectd-exec-dslstats collectd, luci-statistic
+- https://github.com/knolleary/pubsubclient/ MQTT, the light MQ broker basic
+- https://github.com/sqrwf/openwrt-collectd-exec-dslstats collectd, luci-statistic guide
+- https://unix.stackexchange.com/questions/188525/how-to-subscribe-a-bash-script-as-a-mqtt-client - linux FIFO stream reference
+- https://www.papayatemplates.com Papaya free responsive HTML template
 
 ## Authors
 
