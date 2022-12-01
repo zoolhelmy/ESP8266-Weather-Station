@@ -1,0 +1,41 @@
+#!/bin/sh /etc/rc.common
+
+# --------------------------------------------------------------------
+#
+# Initial author: Zool Johan
+# Created       : 23 Nov 2022
+#
+# Function      : mosquitto_sub to wait and collect logs from ESP8266 whenever it publish and
+#
+# Run           : Run as OS service or nohup
+#               : https://openwrt.org/docs/techref/initscripts
+#               : https://openwrt.org/docs/guide-developer/procd-init-scripts
+#
+# --------------------------------------------------------------------
+
+# Variables
+START=99
+STOP=00
+NPID=$(ps | grep [m]osquitto-subscribe-log.sh | awk '{print $1}');
+
+start() {
+
+    if [ "$NPID" = "" ] ; then
+        ash -c '/etc/collectd/mosquitto-subscribe-log.sh &'
+    else
+        echo "mosquitto-subscribe-log service is already running as $NPID";
+    fi
+	
+}
+
+stop() {
+
+	ps | grep [m]osquitto-subscribe-log.sh | awk '{print $1}'
+	for pid in $(ps | grep [m]osquitto-subscribe-log.sh | awk '{print $1}'); do kill -9 $pid; done
+
+	ps | grep [s]ystem/log | awk '{print $1}'
+	for pid in $(ps | grep [s]ystem/log | awk '{print $1}'); do kill -9 $pid; done
+
+}
+
+#EOF
