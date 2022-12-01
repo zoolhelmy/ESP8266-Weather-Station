@@ -13,9 +13,6 @@
 # --------------------------------------------------------------------
 
 # Variables
-START=10
-STOP=15
-
 HOSTNAME="${COLLECTD_HOSTNAME:-$(cat /proc/sys/kernel/hostname)}" #
 INTERVAL=${COLLECTD_INTERVAL:-30}                                 #
 INTERVAL=${INTERVAL%.*}                                           # OpenWRT collectd default 30 secs
@@ -48,21 +45,22 @@ read_last_data() {
 	echo "PUTVAL \"$HOSTNAME/$RRDTOOL_IFID/pressuresea\"  N:$presssea"
 	echo "PUTVAL \"$HOSTNAME/$RRDTOOL_IFID/altitude\"     N:$alt"
 	echo "PUTVAL \"$HOSTNAME/$RRDTOOL_IFID/altitudereal\" N:$altreal"
-	
-	# reset the data, if any of the services are down, the data will always zero
+
+	# reset the data, if any other services are down, the data will always zero
 	rm -rf $PATH_COLLECTDDATA/*.txt
 
 }
 
 # Main infinite loop
 main() {
+
 	while true; do
 		read_last_data
 		sleep "$INTERVAL"
 	done
+	
 }
 
-echo start
 main
- 
+
 # EOF
