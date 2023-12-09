@@ -24,11 +24,11 @@
 #define DHTTYPE   				DHT22
 #define seaLevelPressure_hPa 	1013.25
 
-// built in LED
+// Built-in LED
 unsigned long currentMillis3 = 0;
 unsigned long previousMillis3 = 0;
 
-// Wifi
+// WiFi
 const char* ssid = "zoolhelmy.com";
 const char* password = "xxxxx";
 const char* MCUHostname = "WeatherStation";
@@ -38,7 +38,7 @@ IPAddress local_IP(192, 168, 68, 99);
 IPAddress gateway(192, 168, 68, 1);
 IPAddress subnet(255, 255, 255, 0);
 
-// http server
+// HTTP server
 ESP8266WebServer server(80);
 
 // NTP
@@ -95,7 +95,7 @@ void setup() {
   setMQTTThingSpeak();
   setSensors();
 
-  // setup built in LED
+  // Setup built-in LED
   pinMode(BUILTIN_LED, OUTPUT);
   
 }
@@ -171,13 +171,13 @@ void setWiFi () {
   WiFi.hostname(MCUHostname); // Not working with Lwip v2.x, it need v1.4
   WiFi.begin(ssid, password);
 
-  //check wi-fi is connected to wi-fi network
+  // Check whether WiFi is connected to a WiFi network
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
     Serial.print(".");
   }
   Serial.println("");
-  Serial.println("Wifi is connected..!");
+  Serial.println("WiFi is connected..!");
   Serial.print("IP Address: ");  Serial.println(WiFi.localIP());
   Serial.printf("Hostname: %s\n", WiFi.hostname());
 
